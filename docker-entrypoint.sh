@@ -37,8 +37,7 @@ else
 	echo "node.name: $NODE_NAME"       >> $CONFIG_FILE
 fi
 # =============================================================================
-if [ ! -n "$NODE_RACK" ];then
-else
+if [ -n "$NODE_RACK" ];then
 	echo "node.rack: $NODE_RACK"       >> $CONFIG_FILE
 fi
 
