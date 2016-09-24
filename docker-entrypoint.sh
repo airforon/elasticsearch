@@ -25,22 +25,19 @@ echo "network.host: _eth0:ipv4_"                  >>  $CONFIG_FILE
 echo "discovery.zen.ping.multicast.enabled: true" >>  $CONFIG_FILE
 
 if [ ! -n "$CLUSTER_NAME" ];then
-	echo "NULL : CLUSTER_NAME"
-	exit 1
+	echo "Default CLUSTER_NAME : elasticsearch"
+	echo "cluster.name: elasticsearch" >>  $CONFIG_FILE
 else
 	echo "cluster.name: $CLUSTER_NAME" >>  $CONFIG_FILE
 fi
 # =============================================================================
 if [ ! -n "$NODE_NAME" ];then
-	echo "NULL : NODE_NAME"
-	exit 1
+	echo "Default NODE_NAME : random"
 else
 	echo "node.name: $NODE_NAME"       >> $CONFIG_FILE
 fi
 # =============================================================================
 if [ ! -n "$NODE_RACK" ];then
-	echo "NULL : NODE_RACK"
-	exit 1
 else
 	echo "node.rack: $NODE_RACK"       >> $CONFIG_FILE
 fi

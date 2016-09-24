@@ -4,11 +4,11 @@
 	+ discovery-multicast
 
 ## Environment variable
-+ `cluster.name` : ${CLUSTER_NAME}
-+ `node.name` : ${NODE_NAME}
-+ `node.rack` : ${NODE_RACK}
-+ `network.host` : ${NETWORK_HOST}
-+ `discovery.zen.ping.unicast.hosts` : ${DISCOVERY_HOST}
+| Name | variable | Default |
+| :----|:---------|:------------|
+| `cluster.name` | ${CLUSTER_NAME} | 
+| `node.name` | ${NODE_NAME} |
+| `node.rack` | ${NODE_RACK} |
 
 ```
 docker run \
@@ -18,7 +18,5 @@ docker run \
 -e "CLUSTER_NAME=es" \
 -e "NODE_NAME=node0" \
 -e "NODE_RACK=es1" \
--e "NETWORK_HOST=172.16.6.199" \
--e "DISCOVERY_HOST='"172.18.15.11","172.18.15.12"'" \
--d es
+-d airforon/elasticsearch
 ```
