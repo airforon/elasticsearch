@@ -1,14 +1,13 @@
 FROM elasticsearch:latest
 
-MAINTAINER FoxBoxsnet <naoki.aoyama@air-foron.com>
+MAINTAINER airforon <github@air-foron.com>
 
 COPY config/elasticsearch.yml /usr/share/elasticsearch/config
 
-RUN plugin install analysis-kuromoji \
-	&& plugin install lmenezes/elasticsearch-kopf/master \
-	&& plugin install discovery-multicast \
-	&& chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/config/elasticsearch.yml
-
+RUN \
+	   plugin install lmenezes/elasticsearch-kopf/master \
+	&& plugin install discovery-multicast
+#	&& chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/config/elasticsearch.yml
 
 
 COPY docker-entrypoint.sh /

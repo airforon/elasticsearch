@@ -1,4 +1,9 @@
+# elasticsearch multicast and kopf
+## Plugin
+	+ elasticsearch-kopf
+	+ discovery-multicast
 
+## Environment variable
 + `cluster.name` : ${CLUSTER_NAME}
 + `node.name` : ${NODE_NAME}
 + `node.rack` : ${NODE_RACK}
