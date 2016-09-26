@@ -4,9 +4,12 @@ machine:
 
   services:
     - docker
-
-  test:
+dependencies:
+  override:
     - docker version
+
+test:
+  override:
     - docker build --no-cache -t buildtest .
     - docker images
     - docker history buildtest
