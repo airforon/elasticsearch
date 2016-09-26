@@ -4,9 +4,8 @@ machine:
 
   services:
     - docker
-  
-dependencies:
-  override:
+
+test:
     - docker version
     - docker build --no-cache -t buildtest .
     - docker images
