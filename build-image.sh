@@ -25,8 +25,6 @@ docker run \
 -e "CLUSTER_NAME=es" \
 -e "NODE_NAME=node1" \
 -e "NODE_RACK=es1" \
--e "NETWORK_HOST=172.18.15.15" \
--e "DISCOVERY_HOST=172.18.15.11" \
 -it airforon/elasticsearch:v0.0.1
 docker logs -f es0
 docker stop es0
