@@ -2,7 +2,7 @@
 
 TAG=${TAG:-$1}
 strDIR=`basename $PWD`
-IMAGE=airforon/$strDIR:${TAG}
+IMAGE=homesoctokyo/$strDIR:${TAG}
 echo ${IMAGE}
 git pull
 
