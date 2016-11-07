@@ -25,7 +25,6 @@ docker run \
 -p 9301:9300 \
 -e "CLUSTER_NAME=es" \
 -e "NODE_NAME=node1" \
--e "NODE_RACK=es1" \
 -it ${IMAGE}
 docker logs -f es0
 docker stop es0
