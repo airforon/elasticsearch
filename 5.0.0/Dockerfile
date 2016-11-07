@@ -1,6 +1,6 @@
 FROM java:8-jre-alpine
 
-MAINTAINER airforon <github@homesoc.tokyo>
+MAINTAINER HomeSOC Tokyo <github@homesoc.tokyo>
 
 ARG ELASTICSEARCH_VERSION=5.0.0
 ARG GOSU_VERSION=1.10
