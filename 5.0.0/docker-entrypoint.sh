@@ -24,8 +24,9 @@ echo "indices.fielddata.cache.size: 75%"                    >>  $CONFIG_FILE
 echo "network.host: _eth0:ipv4_"                            >>  $CONFIG_FILE
 
 
-if [ ! "$CLUSTER_HOST" ];then
+if [ ! -n "$CLUSTER_HOST" ];then
 	echo "Discovery Zen Ping Unicast Hosts"
+else
 	echo "discovery.zen.ping.unicast.hosts: "${CLUSTER_HOST}"" >>  $CONFIG_FILE
 fi
 # =============================================================================
