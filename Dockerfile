@@ -33,7 +33,7 @@ RUN \
         && cd /usr/src \
         && curl -fSL https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/$ELASTICSEARCH_VERSION/elasticsearch-$ELASTICSEARCH_VERSION.tar.gz \
                 -o elasticsearch-$ELASTICSEARCH_VERSION.tar.gz \
-        && curl -fSL https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.1/elasticsearch-2.4.1.tar.gz.sha1 \
+        && curl -fSL https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/$ELASTICSEARCH_VERSION/elasticsearch-$ELASTICSEARCH_VERSION.tar.gz.sha1 \
                 -o elasticsearch-$ELASTICSEARCH_VERSION.tar.gz.sha1 \
         && echo "`cat elasticsearch-$ELASTICSEARCH_VERSION.tar.gz.sha1` *elasticsearch-$ELASTICSEARCH_VERSION.tar.gz" | sha1sum -c - \
         && mkdir -p /usr/share/elasticsearch/data \
