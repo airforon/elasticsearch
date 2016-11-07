@@ -47,7 +47,6 @@ RUN \
 
 WORKDIR /usr/share/elasticsearch
 COPY config/elasticsearch.yml /usr/share/elasticsearch/config
-COPY config/jvm.options /usr/share/elasticsearch/config
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["elasticsearch"]
