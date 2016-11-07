@@ -14,7 +14,7 @@ docker images | grep none | awk '{print $3}' | xargs docker rmi	> /dev/null
 
 
 cd $(dirname $0)
-docker build --no-cache -t ${IMAGE} .
+docker build --no-cache -t ${IMAGE} ${VERSION}
 
 docker stop test	> /dev/null
 docker rm test		> /dev/null
