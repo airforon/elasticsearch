@@ -22,14 +22,11 @@ fi
 echo "bootstrap.memory_lock: true"                          >   $CONFIG_FILE
 echo "indices.fielddata.cache.size: 75%"                    >>  $CONFIG_FILE
 echo "network.host: _eth0:ipv4_"                            >>  $CONFIG_FILE
-echo "discovery.zen.ping.unicast.hosts: "$CLUSTER_HOST""    >>  $CONFIG_FILE
-
-
 
 
 if [ ! -n "$CLUSTER_HOST" ];then
 	echo "Discovery Zen Ping Unicast Hosts"
-	echo "discovery.zen.ping.unicast.hosts: "$CLUSTER_HOST"" >>  $CONFIG_FILE
+	echo "discovery.zen.ping.unicast.hosts: "${CLUSTER_HOST:-"["localhost","127.0.0.1"]"}"" >>  $CONFIG_FILE
 fi
 # =============================================================================
 if [ ! -n "$CLUSTER_NAME" ];then
