@@ -43,7 +43,6 @@ RUN \
         && tar xzf /usr/src/elasticsearch-$ELASTICSEARCH_VERSION.tar.gz -C /usr/share/elasticsearch --strip=1 \
         && rm -f /usr/src/elasticsearch-$ELASTICSEARCH_VERSION.tar.gz \
         && chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/ \
-        && elasticsearch-plugin install discovery-multicast \
         && apk del .build-elasticsearch
 
 WORKDIR /usr/share/elasticsearch
