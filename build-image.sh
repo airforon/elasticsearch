@@ -26,7 +26,7 @@ docker run \
 -e "CLUSTER_NAME=es" \
 -e "NODE_NAME=node1" \
 -e "NODE_RACK=es1" \
--it airforon/elasticsearch:v0.0.1
+-it ${IMAGE}
 docker logs -f es0
 docker stop es0
 docker rm es0
