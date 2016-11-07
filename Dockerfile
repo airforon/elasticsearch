@@ -1,8 +1,8 @@
 FROM java:8-jre-alpine
 
-MAINTAINER airforon <github@air-foron.com>
+MAINTAINER airforon <github@homesoc.tokyo>
 
-ARG ELASTICSEARCH_VERSION=2.4.1
+ARG ELASTICSEARCH_VERSION=5.0.0
 ARG GOSU_VERSION=1.10
 ENV PATH /usr/share/elasticsearch/bin:$PATH
 
@@ -43,7 +43,6 @@ RUN \
         && tar xzf /usr/src/elasticsearch-$ELASTICSEARCH_VERSION.tar.gz -C /usr/share/elasticsearch --strip=1 \
         && rm -f /usr/src/elasticsearch-$ELASTICSEARCH_VERSION.tar.gz \
         && chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/ \
-        && plugin install lmenezes/elasticsearch-kopf/master \
         && plugin install discovery-multicast \
         && apk del .build-elasticsearch
 
