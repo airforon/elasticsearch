@@ -18,3 +18,4 @@
 | `node.attr.rack` | Node Attr Rack |
 | `discovery.zen.ping.unicast.hosts` | discovery zen ping unicast hosts |
 | `discovery.zen.minimum_master_nodes` | discovery zen minimum_master_nodes |
+| `ES_JAVA_OPTS="-Xms1g -Xmx1g` | Max Heep size |
