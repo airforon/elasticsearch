@@ -3,7 +3,7 @@
 TAG=${TAG:-$1}
 VERSION=5.0.0
 strDIR=`basename $PWD`
-IMAGE=homesoctokyo/$strDIR:${TAG}
+IMAGE=tokyohomesoc/$strDIR:${TAG}
 echo ${IMAGE}
 git pull
 
@@ -25,7 +25,6 @@ docker run \
 -p 9301:9300 \
 -e "CLUSTER_NAME=es" \
 -e "NODE_NAME=node1" \
-#-e ES_JAVA_OPTS="-Xms1g -Xmx1g"  \
 -it ${IMAGE}
 docker logs -f es0
 docker stop es0
