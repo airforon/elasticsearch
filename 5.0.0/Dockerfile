@@ -1,5 +1,6 @@
-# pull base image
 FROM elasticsearch:5.0
+
+MAINTAINER Tokyo Home SOC <github@homesoc.tokyo>
 
 ENV ES_JAVA_OPTS="-Xms1g -Xmx1g"
 
