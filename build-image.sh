@@ -3,7 +3,7 @@
 TAG=${TAG:-$1}
 VERSION=5.0.0
 strDIR=`basename $PWD`
-IMAGE=homesoctokyo/$strDIR:${TAG}
+IMAGE=tokyohomesoc/$strDIR:${TAG}
 echo ${IMAGE}
 git pull
 
