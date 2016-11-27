@@ -1,22 +1,21 @@
-# elasticsearch multicast and kopf
-## Plugin
-	+ elasticsearch-kopf
-	+ discovery-multicast
+# elasticsearch 5.0
 
-## Environment variable
-| Name | variable | Default |
-| :----|:---------|:------------|
-| `cluster.name` | ${CLUSTER_NAME} | 
-| `node.name` | ${NODE_NAME} |
-| `node.rack` | ${NODE_RACK} |
+[Install Elasticsearch on Windows | Elasticsearch Reference [5.0] | Elastic](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/windows.html#windows-configuring "Install Elasticsearch on Windows | Elasticsearch Reference [5.0] | Elastic")
 
 ```
-docker run \
---name es0 \
--p 9200:9200 \
--p 9300:9300 \
--e "CLUSTER_NAME=es" \
--e "NODE_NAME=node0" \
--e "NODE_RACK=es1" \
--d airforon/elasticsearch
+./bin/elasticsearch \
+    -Ecluster.name=my_cluster \
+    -Enode.name=node_1 \
+    -Enode.attr.rack=DC1 \
+    -Ediscovery.zen.ping.unicast.hosts="['192.168.0.1', '192.168.0.2']" \
+    -Ediscovery.zen.minimum_master_nodes=3
 ```
+
+| Value | Description |
+|:------|:------------|
+| `cluster.name` | Cluster Name |
+| `node.name` | Node Name |
+| `node.attr.rack` | Node Attr Rack |
+| `discovery.zen.ping.unicast.hosts` | discovery zen ping unicast hosts |
+| `discovery.zen.minimum_master_nodes` | discovery zen minimum_master_nodes |
+| `ES_JAVA_OPTS="-Xms1g -Xmx1g` | Max Heep size |

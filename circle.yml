@@ -11,6 +11,6 @@ dependencies:
 
 test:
   override:
-    - docker build --no-cache -t buildtest .
+    - docker build --no-cache -t buildtest ./5.0.0/
     - docker images
     - docker history buildtest
