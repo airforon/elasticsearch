@@ -1,0 +1,25 @@
+dist: trusty
+sudo: required
+services:
+  - docker
+
+env:
+  global:
+  - DOCKER_VERSION=1.13.1-0~ubuntu-trusty
+  matrix:
+  - TEST_TARGET: elasticsearch
+
+before_install:
+  # list docker-engine versions
+  - apt-cache madison docker-engine
+  # upgrade docker-engine to specific version
+  - sudo apt-get -o Dpkg::Options::="--force-confnew" install -y --force-yes docker-engine=${DOCKER_VERSION}
+  - docker version
+  - docker info
+
+script:
+  - make $TEST_TARGET
+
+notifications:
+  slack:
+    secure: PQWij9NjSI+S8qS2n9K77j9/cnfqxRZwJYyI/H7FI5x90OQbjsJr41UrvIZCB12R1k/3q7S/czgjMKvZYNMt36w8/ZyFI2ZK0+GOvft/vffBT6R7SEnVQIT9N/43h88AB6tzlwGlXIUBJvleDvxI6HpxHbnq2U/9rDY/IVpN6a6YSrPtJJyVzGmHUtsu4a3BZ/S0lxkLwoF2kDqqhyzg8PGI9FtX8HXcQAZSF/G2zarFp60tPAEwaGsO5xmrMhXNwS0fl2pLH8B9FlxysmzFPsCeXw9FbdwicXXmX7r1sEAa2ezVbOgxWQBqM+fcy/l6x9wNXok+tjKpF8SvtS48D7eOe1lyOG+b1kxQZYwB1+JaLEnvyRkpfSe1GQulaBEw3y6wQT1RhCn6RMmMo0G+XLJnXh6UJAirZXaZJZn83yzaUQ7GaQszKAJCoNthFrNaO0vnugV1ObTLEaFIMrLMElJX9PlORVFNL/2Qc+xCEidSqqLDm3/g6qS0ML3dik+NLA57w058+vJP0LQsZDp+p26xzBCYv1p1/CrkS7bJ785Y2/rerFTOl80VGxlUBcW5I/DudRqTHkcqa7Ty7IOUAzXCnNdJ2D0XZrx+t9WdVkRi5J05wRKPy8roEJG97lgubU5DYEEK8PanjS5R3nychpIWbQXWRkmv4EqzXZ4d+zo=

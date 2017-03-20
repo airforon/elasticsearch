@@ -1,4 +1,4 @@
-FROM elasticsearch:5.0
+FROM elasticsearch:alpine
 
 MAINTAINER Tokyo Home SOC <github@homesoc.tokyo>
 
