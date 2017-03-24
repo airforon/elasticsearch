@@ -33,6 +33,6 @@ RUN \
 
 VOLUME /usr/share/elasticsearch/
 
-EXPOSE 9200 9300
+EXPOSE 9200 9300 8778/tcp
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["elasticsearch"]
