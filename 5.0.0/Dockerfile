@@ -1,6 +1,6 @@
 FROM elasticsearch:5.5.2
 
-MAINTAINER Tokyo Home SOC <github@homesoc.tokyo>
+MAINTAINER HomeSOC <github@homesoc.tokyo>
 
 # Environment variable
 ARG TIMEZONE=Asia/Tokyo
