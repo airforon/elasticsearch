@@ -6,13 +6,12 @@ MAINTAINER Tokyo Home SOC <github@homesoc.tokyo>
 ARG TIMEZONE=Asia/Tokyo
 
 ENV ES_JAVA_OPTS="-Xms1g -Xmx1g"
+ENV TZ='Asia/Tokyo'
 
 RUN \
     # TIMEZONE
-       apk add --no-cache \
-        tzdata \
-    && cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
-    && apk del tzdata \
+       apt-get install -y \
+          tzdata \
     \
     && bin/elasticsearch-plugin install analysis-kuromoji \
     && bin/elasticsearch-plugin install analysis-icu \
