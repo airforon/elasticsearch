@@ -25,6 +25,7 @@ RUN \
 
 VOLUME /usr/share/elasticsearch/
 
+COPY ja_userdict.dic /usr/share/elasticsearch/config/analyzer/ja_userdict.dic
 EXPOSE 9200 9300
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["elasticsearch"]
