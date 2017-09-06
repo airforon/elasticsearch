@@ -10,7 +10,9 @@ ENV TZ='Asia/Tokyo'
 
 RUN \
     # TIMEZONE
-       apt-get install -y \
+       apt update -y \
+    && apt upgrade -y \
+    && apt-get install -y \
           tzdata \
     \
     && bin/elasticsearch-plugin install analysis-icu \
@@ -21,7 +23,11 @@ RUN \
     && echo "xpack.ml.enabled: false" >> /usr/share/elasticsearch/config/elasticsearch.yml \
     && echo "xpack.monitoring.enabled: true" >> /usr/share/elasticsearch/config/elasticsearch.yml \
     && echo "xpack.security.enabled: false" >> /usr/share/elasticsearch/config/elasticsearch.yml \
-    && echo "xpack.watcher.enabled: false" >> /usr/share/elasticsearch/config/elasticsearch.yml
+    && echo "xpack.watcher.enabled: false" >> /usr/share/elasticsearch/config/elasticsearch.yml \
+    \
+    # Clean up
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 VOLUME /usr/share/elasticsearch/
 
