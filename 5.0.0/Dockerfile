@@ -1,6 +1,7 @@
-FROM elasticsearch:5.5.2
+FROM elasticsearch:5.6.4
 
-MAINTAINER HomeSOC <github@homesoc.tokyo>
+LABEL maintainer "Naoki Aoyama<github@homesoc.io>"
+LABEL Description="Elasticsearch docker image" Vendor="HomeSOC Organization" Version="1.1"
 
 # Environment variable
 ENV XPACK_GRAPH_ENABLED='false'
@@ -10,7 +11,7 @@ ENV XPACK_REPORTING_ENABLED='false'
 ENV XPACK_SECURITY_ENABLED='false'
 ENV XPACK_WATCHER_ENABLED='false'
 
-ENV ES_JAVA_OPTS="-Xms1g -Xmx1g"
+ENV ES_JAVA_OPTS="-Xms256m -Xmx256m"
 
 RUN \
        bin/elasticsearch-plugin install analysis-icu \
